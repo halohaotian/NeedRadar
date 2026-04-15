@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Sora, JetBrains_Mono } from "next/font/google";
+import { AnalyticsProvider } from "@/components/Analytics";
 import "./globals.css";
 
 const sora = Sora({
@@ -51,7 +52,7 @@ export default function RootLayout({
       className={`${sora.variable} ${jetbrainsMono.variable} antialiased`}
     >
       <body className="min-h-screen bg-black text-white font-sans">
-        {children}
+        <AnalyticsProvider>{children}</AnalyticsProvider>
       </body>
     </html>
   );

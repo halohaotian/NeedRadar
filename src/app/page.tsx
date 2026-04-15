@@ -162,10 +162,10 @@ function EmailForm({
           setMsg(data.message || "You're in!");
           setEmail("");
           onSuccess?.();
+          // Redirect to waitlist page to show position
           setTimeout(() => {
-            setStatus("idle");
-            setMsg("");
-          }, 4000);
+            window.location.href = `/waitlist?email=${encodeURIComponent(email)}`;
+          }, 1200);
         } else {
           setStatus("error");
           setMsg(data.error || "Something went wrong");
