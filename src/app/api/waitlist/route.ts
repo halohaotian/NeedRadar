@@ -36,8 +36,6 @@ export async function POST(request: NextRequest) {
   } catch (err) {
     console.error("Waitlist error:", err);
     return NextResponse.json({ error: "Something went wrong" }, { status: 500 });
-  } finally {
-    sql.end();
   }
 }
 
@@ -65,7 +63,5 @@ export async function GET(request: NextRequest) {
   } catch (err) {
     console.error("Waitlist GET error:", err);
     return NextResponse.json({ error: "Something went wrong" }, { status: 500 });
-  } finally {
-    sql.end();
   }
 }

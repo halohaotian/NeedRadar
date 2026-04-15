@@ -79,7 +79,5 @@ export async function POST(request: NextRequest) {
   } catch (err) {
     console.error("Subscribe error:", err);
     return NextResponse.json({ error: "Something went wrong" }, { status: 500 });
-  } finally {
-    sql.end();
   }
 }

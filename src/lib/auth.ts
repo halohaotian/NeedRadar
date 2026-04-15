@@ -28,7 +28,6 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
           const users = await sql`
             SELECT id, email, name, image FROM nr_users WHERE email = ${credentials.email as string}
           `;
-          sql.end();
           if (!users[0]) return null;
           const user = users[0];
           return {
@@ -60,7 +59,6 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
             image = COALESCE(EXCLUDED.image, nr_users.image),
             updated_at = NOW()
         `;
-        sql.end();
       } catch (err) {
         console.error("Auth signIn callback error:", err);
       }

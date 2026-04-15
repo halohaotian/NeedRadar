@@ -31,19 +31,19 @@ export async function GET(request: NextRequest) {
   // Fetch all entries (latest first)
   const entries = await sql`
     SELECT id, email, source, created_at
-    FROM waitlist
+    FROM nr_waitlist
     ORDER BY created_at DESC
     LIMIT 1000
   `;
 
   // Stats
   const [totalResult] = await sql`
-    SELECT COUNT(*) as count FROM waitlist
+    SELECT COUNT(*) as count FROM nr_waitlist
   `;
   const totalSubscribers = Number(totalResult.count);
 
   const [todayResult] = await sql`
-    SELECT COUNT(*) as count FROM waitlist
+    SELECT COUNT(*) as count FROM nr_waitlist
     WHERE created_at >= CURRENT_DATE
   `;
   const todaySubscribers = Number(todayResult.count);
@@ -51,7 +51,7 @@ export async function GET(request: NextRequest) {
   // Last 7 days
   const last7Days = await sql`
     SELECT DATE(created_at) as date, COUNT(*) as count
-    FROM waitlist
+    FROM nr_waitlist
     WHERE created_at >= CURRENT_DATE - INTERVAL '6 days'
     GROUP BY DATE(created_at)
     ORDER BY date ASC
@@ -60,7 +60,7 @@ export async function GET(request: NextRequest) {
   // By source
   const bySource = await sql`
     SELECT source, COUNT(*) as count
-    FROM waitlist
+    FROM nr_waitlist
     GROUP BY source
     ORDER BY count DESC
   `;

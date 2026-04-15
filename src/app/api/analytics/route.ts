@@ -31,8 +31,6 @@ export async function POST(request: NextRequest) {
     }
   } catch (err) {
     console.error("Analytics POST error:", err);
-  } finally {
-    sql.end();
   }
 
   return NextResponse.json({ ok: true });
@@ -130,7 +128,5 @@ export async function GET() {
   } catch (err) {
     console.error("Analytics GET error:", err);
     return NextResponse.json({ error: "Failed to load analytics" }, { status: 500 });
-  } finally {
-    sql.end();
   }
 }

@@ -2,6 +2,11 @@ import postgres from "postgres";
 
 let _sql: ReturnType<typeof postgres> | null = null;
 
+/**
+ * Returns a shared postgres connection (singleton).
+ * Do NOT call sql.end() — the connection is reused across requests.
+ * In serverless environments (Vercel), the process is recycled automatically.
+ */
 export function getDb() {
   if (_sql) return _sql;
 
