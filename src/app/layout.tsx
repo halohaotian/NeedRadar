@@ -38,22 +38,6 @@ export const metadata: Metadata = {
     title: "NeedRadar — AI Mines User Needs From Reviews",
     description:
       "Discover what users really want. Ranked by impact. Prioritized by ROI.",
+  alternates: { canonical: 'https://needradar.10xsmart.com' },
   },
 };
-
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
-  return (
-    <html
-      lang="en"
-      className={`${sora.variable} ${jetbrainsMono.variable} antialiased`}
-    >
-      <body className="min-h-screen bg-black text-white font-sans">
-        <AnalyticsProvider>{children}</AnalyticsProvider>
-      </body>
-    </html>
-  );
-}
