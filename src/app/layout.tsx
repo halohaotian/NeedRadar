@@ -18,6 +18,7 @@ const jetbrainsMono = JetBrains_Mono({
 export const metadata: Metadata = {
   title: "NeedRadar — Stop Guessing What Users Want. AI Mines It From Reviews.",
   description:
+  alternates: { canonical: 'https://needradar.10xsmart.com' },
     "NeedRadar uses AI to mine app reviews from App Store, Google Play, and Chinese app stores. Discover what users really want, ranked by ROI score.",
   keywords: [
     "app review analysis",
@@ -29,6 +30,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "NeedRadar — AI-Powered App Review Need Mining",
     description:
+  alternates: { canonical: 'https://needradar.10xsmart.com' },
       "Stop guessing what to build next. Mine real user needs from millions of app reviews.",
     type: "website",
     url: "https://needradar.net",
@@ -37,7 +39,24 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "NeedRadar — AI Mines User Needs From Reviews",
     description:
-      "Discover what users really want. Ranked by impact. Prioritized by ROI.",
   alternates: { canonical: 'https://needradar.10xsmart.com' },
+      "Discover what users really want. Ranked by impact. Prioritized by ROI.",
   },
 };
+
+export default function RootLayout({
+  children,
+}: Readonly<{
+  children: React.ReactNode;
+}>) {
+  return (
+    <html
+      lang="en"
+      className={`${sora.variable} ${jetbrainsMono.variable} antialiased`}
+    >
+      <body className="min-h-screen bg-black text-white font-sans">
+        <AnalyticsProvider>{children}</AnalyticsProvider>
+      </body>
+    </html>
+  );
+}
