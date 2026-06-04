@@ -5,9 +5,6 @@ Allow: /
 User-agent: Bingbot
 Allow: /
 
-User-agent: Baiduspider
-Allow: /
-
 # === AI Search Crawlers (ALLOW) ===
 User-agent: OAI-SearchBot
 Allow: /
@@ -18,29 +15,11 @@ Allow: /
 User-agent: PerplexityBot
 Allow: /
 
-User-agent: Applebot
-Allow: /
-
-User-agent: Bytespider
-Allow: /
-
 # === AI User Agents (ALLOW) ===
 User-agent: ChatGPT-User
 Allow: /
 
 User-agent: Claude-User
-Allow: /
-
-User-agent: Perplexity-User
-Allow: /
-
-User-agent: MistralAI-User
-Allow: /
-
-User-agent: Google-NotebookLM
-Allow: /
-
-User-agent: Meta-ExternalFetcher
 Allow: /
 
 # === AI Training Crawlers (BLOCK) ===
@@ -56,11 +35,11 @@ Disallow: /
 User-agent: CCBot
 Disallow: /
 
-User-agent: Applebot-Extended
-Disallow: /
-
 User-agent: Meta-ExternalAgent
 Disallow: /
 
+User-agent: Amazonbot
+Disallow: /
+
 # === Sitemap ===
-Sitemap: https://needradar.10xsmart.com/sitemap.xml
+Sitemap: https://needradar.net/sitemap.xml
