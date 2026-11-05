@@ -39,12 +39,21 @@ export const metadata: Metadata = {
     url: siteUrl,
     siteName: brandName,
     locale: "en_US",
+    images: [
+      {
+        url: "/og-default.png",
+        width: 1200,
+        height: 630,
+        alt: "NeedRadar — AI-Powered App Review Need Mining",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: `${brandName} — AI Mines User Needs From Reviews`,
     description:
       "Discover what users really want. Ranked by impact. Prioritized by ROI.",
+    images: ["/og-default.png"],
   },
 };
 
